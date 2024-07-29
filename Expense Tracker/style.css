@@ -1,0 +1,182 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    width: 80%;
+    max-width: 1000px;
+    box-sizing: border-box; /* Ensures padding is included in the width */
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Space between the two columns */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.expense-form, .expense-list {
+    flex: 1 1 45%; /* Flex grow, shrink, and basis */
+    background: #fafafa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border: 1px solid #e0e0e0;
+    box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+.expense-list {
+    height: 400px; /* Fixed height for scrolling */
+    overflow-y: auto; /* Vertical scrollbar */
+}
+
+input[type="text"], input[type="number"], input[type="date"], select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background: #fff;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+
+li span {
+    flex: 1;
+    margin-right: 10px;
+}
+
+li button {
+    background-color: #dc3545;
+    margin-top: 2px;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+li button:hover {
+    background-color: #c82333;
+}
+
+.total-expense {
+    margin-top: 20px;
+    text-align: center;
+    position: relative; /* Allows positioning of the monthly summary container */
+}
+
+#showMonthlySummary {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+}
+
+#showMonthlySummary:hover {
+    background-color: #0069d9;
+}
+
+.monthly-summary {
+    display: none;
+    position: absolute; /* Position below the button */
+    top: 130%;
+    left:0;
+    right: 0;
+    background: #fafafa;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border: 1px solid #e0e0e0;
+    max-width: 100%; /* Full width of the container */
+    z-index: 1000;
+}
+
+#hideMonthlySummary {
+    width: 20%;
+    padding: 5px;
+    margin-top: 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#hideMonthlySummary:hover {
+    background-color: #c82333;
+}
+
+@media (max-width: 800px) {
+    .content {
+        flex-direction: column;
+        align-items: stretch; /* Ensures full width on small screens */
+    }
+
+    .expense-form, .expense-list {
+        width: 100%; /* Full width on small screens */
+        margin-bottom: 20px;
+    }
+}

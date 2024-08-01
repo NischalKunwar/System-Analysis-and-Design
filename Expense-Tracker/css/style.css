@@ -1,0 +1,263 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+#welcome {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    margin: 5px 5px;
+    position: absolute;
+    left: 1%;
+    top: 1%;
+}
+
+#logout {
+    background: linear-gradient(-180deg, #FF7E31, #E62C03);
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+    color: #FFFFFF;
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0 20px;
+    text-align: center;
+    width: max-content;
+    border: 0;
+    padding: 5px;
+    transition: box-shadow .2s;
+}
+
+#logout:hover {
+    box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
+}
+
+.container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 1000px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+h1,
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.transaction-form,
+.transaction-list {
+    flex: 1 1 45%;
+    background: #fafafa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    box-sizing: border-box;
+}
+
+.transaction-list {
+    height: 400px;
+    overflow-y: auto;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background: #fff;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+li span {
+    flex: 1;
+    margin-right: 10px;
+}
+
+li button {
+    background-color: #dc3545;
+    margin-top: 2px;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+li button:hover {
+    background-color: #c82333;
+}
+
+.total-transaction {
+    margin-top: 20px;
+    text-align: center;
+    position: relative;
+}
+
+/* Total Section Styles */
+.total-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.total-item {
+    flex: 1;
+    text-align: center;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+}
+
+.total-item h2 {
+    margin: 0;
+    color: #333;
+}
+
+.total-item p {
+    font-size: 1.2em;
+    color: #007bff;
+}
+
+#showMonthlySummary {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+#showMonthlySummary:hover {
+    background-color: #0069d9;
+}
+
+.monthly-summary {
+    display: none;
+    position: absolute;
+    top: 127%;
+    left: 0;
+    right: 0;
+    background: #fafafa;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    max-width: 100%;
+    z-index: 1000;
+}
+
+#hideMonthlySummary {
+    width: 15%;
+    padding: 3px;
+    margin-top: 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#hideMonthlySummary:hover {
+    background-color: #c82333;
+}
+
+@media (max-width: 800px) {
+    .content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .transaction-form,
+    .transaction-list {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Hide category input when 'Income' is selected */
+.transaction-form input[name="transactionType"][value="income"]:checked ~ #categoryContainer {
+    display: none;
+}
+
+/* Show category input when 'Expense' is selected */
+.transaction-form input[name="transactionType"][value="expense"]:checked ~ #categoryContainer {
+    display: block;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
